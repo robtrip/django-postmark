@@ -69,8 +69,8 @@ class EmailBounce(models.Model):
     id = models.PositiveIntegerField(primary_key=True)
     message = models.ForeignKey(EmailMessage, related_name="bounces", verbose_name=_("Message"))
     
-    inactive = models.BooleanField(_("Inactive"))
-    can_activate = models.BooleanField(_("Can Activate"))
+    inactive = models.BooleanField(_("Inactive"), default=False)
+    can_activate = models.BooleanField(_("Can Activate"), default=False)
     
     type = models.CharField(_("Type"), max_length=100, choices=BOUNCE_TYPES)
     description = models.TextField(_("Description"))
